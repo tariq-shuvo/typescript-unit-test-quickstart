@@ -1,22 +1,17 @@
+import ManageDOM from '../utils/ManageDOM';
 import { UserType } from './../models/constants/UserTypes';
 import { UserModel } from './../models/UserModel';
-export class User {
-    //users storage variable
-    private users: UserModel[] = []
 
+//users storage variable
+let users: UserModel[] = []
+export class User {
     /**
      * createUser
      */
-    public createUser():UserModel {
-        let userInfo:UserModel = {
-            userID: "12345678",
-            firstName: "Test",
-            lastName: "Test",
-            email: "Test@gmail.com",
-            userType: UserType.STUDENT
-        }
+    public createUser(userInfoData: any ):UserModel {
+        let userInfo:any = userInfoData
 
-        this.users.push(userInfo)
+        users.push(userInfo)
 
         return userInfo
     }
@@ -24,15 +19,33 @@ export class User {
     /**
      * getAllUser
      */
-    public getAllUser():UserModel[] {
-        return this.users
+    public getAllUser(): void {
+        console.log(users)
+        let userList = ``
+        users.map(user=>{
+            userList += `<li>
+            <h4>${user.userType}(${user.userID})</h4>
+            <p>Name: ${user.userType.toLowerCase()!='student'?user.salutation:''}${user.firstName+' '+user.lastName}</p>
+            <p>Email: ${user.email}</p>
+            </li>`
+        })
+
+        new ManageDOM().insertNewElementById('item-list', userList)
     }
 
     /**
      * getSingleUser
      */
     public getSingleUser(email: string):UserModel {
-        const userInfo = this.users.find(user => user.email === email)
+        const userInfo = users.find(user => user.email === email)
         return userInfo!       
+    }
+
+    /**
+     * checkUserDuplicateID
+     */
+    public checkUserDuplicateID(id: string):boolean {
+        const userInfo = users.find(user => user.userID === id)
+        return userInfo ? true : false
     }
 }

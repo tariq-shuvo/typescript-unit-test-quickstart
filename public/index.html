@@ -1,14 +1,120 @@
-<!DOCTYPE html>
+
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./css/styles.css">
-</head>
-<body>
-    
-    <script src="../dist/bundle.js"></script>
-</body>
-</html>
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Messaging Application</title>
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;1,300;1,400&display=swap"
+        rel="stylesheet"
+      />
+      <link rel="stylesheet" href="./css/styles.css" />
+    </head>
+    <body>
+      <div class="wrapper">
+        <h1>Messaging App</h1>
+  
+        <div class="application-buttons text-center">
+            <button id="manage-user-button">Manage User</button>
+            <button id="manage-messaging-button">Messaging</button>
+        </div>
+        <section id="manage-user">
+            <h4>User Details</h4>
+            <!-- output list -->
+            <ul class="item-list" id="item-list">
+            </ul>
+            <div class="container">
+                <form class="new-item-form" id="addUser">
+                 <div class="field">
+                        <label>User ID:(*)</label>
+                        <input type="text" id="userID" name="userID" data-title="user id" data-required="true"/>
+                      </div>  
+                  <div class="field">
+                    <label>User Type:(*)</label>
+                    <select id="userType" name="userType" data-type="user type" data-required="true">
+                      <option value="STUDENT">Student</option>
+                      <option value="PARENT">Parent</option>
+                      <option value="TEACHER">Parent</option>
+                    </select>
+                  </div>
+                  <div class="field invisible" id="salutationField">
+                    <label>Salutation:(optional)</label>
+                    <input type="text" id="salutation" name="salutation" data-title="salutation" data-required="false"/>
+                  </div>
+                  <div class="field clearfix">
+                    <div class="float-left">
+                        <label>First Name:(*)</label>
+                        <input type="text" id="firstName" name="firstName" data-title="first name" data-required="true"/>
+                    </div>
+                    <div class="float-right">
+                        <label>Last Name:(*)</label>
+                        <input type="text" id="lastName" name="lastName" data-title="last name" data-required="true"/>
+                    </div>
+                  </div>
+                  <div class="field">
+                    <label>Email:(*)</label>
+                    <input type="email" id="email" name="email" data-title="email" data-required="true"/>
+                  </div>
+                  <div class="field">
+                    <label>Profile Photo:(optional)</label>
+                    <input type="file" id="file" name="file" data-title="profile photo" data-required="false"/>
+                  </div>
+                  <button>Save</button>
+                </form>
+              </div>
+        </section>
+        <section id="manage-messaging" class="invisible">
+            <h4>Manage Messaging</h4>
+            <!-- output list -->
+            <ul class="item-list">
+                <li>
+                <h4>Type</h4>
+                <p>Name</p>
+                <p>Email</p>
+                </li>
+            </ul>
+            <div class="container">
+                <form class="new-item-form" id="addUser">
+                  <div class="field">
+                    <label>User Type:(*)</label>
+                    <select id="userType" name="userType" data-type="user type" data-required="true">
+                      <option value="STUDENT">Student</option>
+                      <option value="PARENT">Parent</option>
+                      <option value="TEACHER">Parent</option>
+                    </select>
+                  </div>
+                  <div class="field">
+                    <label>Salutation:(optional)</label>
+                    <input type="text" id="salutation" name="salutation" data-title="salutation" data-required="false"/>
+                  </div>
+                  <div class="field clearfix">
+                    <div class="float-left">
+                        <label>First Name:(*)</label>
+                        <input type="text" id="firstName" name="firstName" data-title="first name" data-required="true"/>
+                    </div>
+                    <div class="float-right">
+                        <label>Last Name:(*)</label>
+                        <input type="text" id="lastName" name="lastName" data-title="last name" data-required="true"/>
+                    </div>
+                  </div>
+                  <div class="field">
+                    <label>Email:(*)</label>
+                    <input type="email" id="email" name="email" data-title="email" data-required="true"/>
+                  </div>
+                  <div class="field">
+                    <label>Profile Photo:(optional)</label>
+                    <input type="file" id="file" name="file" data-title="profile photo" data-required="false"/>
+                  </div>
+                  <button>Save</button>
+                </form>
+              </div>
+        </section>
+      </div>
+  
+      
+  
+      <script src="../dist/bundle.js"></script>
+    </body>
+  </html>  

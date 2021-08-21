@@ -31,6 +31,22 @@ class ManageDOM {
 
         console.log(nodes)
     }
+
+    /**
+     * classAddToElement
+     */
+    public classAddToElement(id: string, className: string) {
+        var element = document.getElementById(id)!
+        element.classList.add(className);
+    }
+
+    /**
+     * classAddToElement
+     */
+     public classRemoveFromElement(id: string, className: string) {
+        var element = document.getElementById(id)!
+        element.classList.remove(className);
+    }
 }
 
 export default ManageDOM

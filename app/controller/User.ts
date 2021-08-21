@@ -56,4 +56,12 @@ export class User {
         const userInfo = users.find(user => user.userID === id)
         return userInfo ? true : false
     }
+
+    /**
+     * getFullName
+     */
+    public getFullName(id: string) {
+        const userInfo = users.find(user => user.userID === id)
+        return userInfo?userInfo.salutation + userInfo.firstName + userInfo.lastName : 'invalid user id'
+    }
 }

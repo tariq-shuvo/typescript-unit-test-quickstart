@@ -70,44 +70,26 @@
             <!-- output list -->
             <ul class="item-list">
                 <li>
-                <h4>Type</h4>
-                <p>Name</p>
-                <p>Email</p>
+                <h4>From: </h4>
+                <p>To: </p>
+                <p>Message: </p>
                 </li>
             </ul>
             <div class="container">
-                <form class="new-item-form" id="addUser">
+                <form class="new-item-form" id="sendMessage">
                   <div class="field">
-                    <label>User Type:(*)</label>
-                    <select id="userType" name="userType" data-type="user type" data-required="true">
-                      <option value="STUDENT">Student</option>
-                      <option value="PARENT">Parent</option>
-                      <option value="TEACHER">Parent</option>
-                    </select>
+                    <label>From:(*)</label>
+                    <input type="text" id="from" name="from" data-title="from" data-required="true"/>
                   </div>
                   <div class="field">
-                    <label>Salutation:(optional)</label>
-                    <input type="text" id="salutation" name="salutation" data-title="salutation" data-required="false"/>
-                  </div>
-                  <div class="field clearfix">
-                    <div class="float-left">
-                        <label>First Name:(*)</label>
-                        <input type="text" id="firstName" name="firstName" data-title="first name" data-required="true"/>
-                    </div>
-                    <div class="float-right">
-                        <label>Last Name:(*)</label>
-                        <input type="text" id="lastName" name="lastName" data-title="last name" data-required="true"/>
-                    </div>
+                    <label>To:(*)</label>
+                    <input type="text" id="to" name="to" data-title="to" data-required="true"/>
                   </div>
                   <div class="field">
-                    <label>Email:(*)</label>
-                    <input type="email" id="email" name="email" data-title="email" data-required="true"/>
+                    <label>Message:(*)</label>
+                    <textarea name="message" id="message" rows="10" data-title="message" data-required="true"></textarea>
                   </div>
-                  <div class="field">
-                    <label>Profile Photo:(optional)</label>
-                    <input type="file" id="file" name="file" data-title="profile photo" data-required="false"/>
-                  </div>
-                  <button>Save</button>
+                  <button>Send</button>
                 </form>
               </div>
         </section>

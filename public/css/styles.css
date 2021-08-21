@@ -55,6 +55,7 @@ label {
   text-align: left;
 }
 input,
+textarea,
 select {
   padding: 6px;
   border: 1px solid #e1e1e1;

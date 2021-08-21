@@ -1,8 +1,9 @@
 import { User } from './../controller/User';
 import ManageDOM from './ManageDOM'
 
-export const formData = (form: HTMLFormElement) => {
+export const formData = (form: Element) => {
     const inputs = form.querySelectorAll('input')
+    const textareas = form.querySelectorAll('textarea')
     const selects = form.querySelectorAll('select')
     const errorNodes  = document.querySelectorAll('.error-color');
 
@@ -33,6 +34,16 @@ export const formData = (form: HTMLFormElement) => {
                 values[input.name] = input.dataset.title + 'empty field is not allowed'
                 errortFlag = true
            }
+        }
+    })
+
+    textareas.forEach(textarea=>{
+        values[textarea.name] = textarea.value.toLowerCase()
+
+        if(textarea.value=='' && textarea.dataset.required=='true'){
+            formValidation.insertNewElementAppendById(textarea.id, `<label class="error-color">${textarea.dataset.title } empty field is not allowed</label>`)
+            values[textarea.name] = textarea.dataset.title + 'empty field is not allowed'
+            errortFlag = true
         }
     })
 

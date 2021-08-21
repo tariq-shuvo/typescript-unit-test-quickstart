@@ -2,13 +2,15 @@ import { User } from './controller/User';
 import { formData } from './utils/FormData';
 import ManageDOM from './utils/ManageDOM';
 
-const form = document.querySelector('form')!
+const form = document.querySelector('form#addUser')!
+const messageForm = document.querySelector('form#sendMessage')!
 const userTypeSelect = document.querySelector('select')!
 const userButton = document.querySelector('#manage-user-button')!
 const messagingButton = document.querySelector('#manage-messaging-button')!
 
 const userObj = new User()
 
+//User Create
 form.addEventListener('submit', (e)=>{
     e.preventDefault()
     const data = formData(form)
@@ -18,9 +20,21 @@ form.addEventListener('submit', (e)=>{
     }
 })
 
+//Send Message
+messageForm.addEventListener('submit', (e)=>{
+    e.preventDefault()
+    const data = formData(messageForm)
+    console.log(data)
+    if(!data.error){
+        // userObj.createUser(data.values)
+        // userObj.getAllUser()
+    }
+})
+
 //Clicked manage user button
 userButton.addEventListener('click', (e)=>{
     e.preventDefault()
+    userObj.getAllUser()
     new ManageDOM().classAddToElement('manage-messaging', 'invisible')
     new ManageDOM().classRemoveFromElement('manage-user', 'invisible')
     new ManageDOM().classAddToElement('manage-user', 'visible')

@@ -35,6 +35,15 @@ export const formData = (form: Element) => {
                 errortFlag = true
            }
         }
+
+        if(input.name=='email'){
+            const checkUserDuplicateID = new User().checkUserDuplicateEmail(input.value.toLowerCase())
+            if(checkUserDuplicateID){
+                 formValidation.insertNewElementAppendById(input.id, `<label class="error-color">${input.dataset.title } duplicate is not allowed</label>`)
+                 values[input.name] = input.dataset.title + 'empty field is not allowed'
+                 errortFlag = true
+            }
+        }
     })
 
     textareas.forEach(textarea=>{

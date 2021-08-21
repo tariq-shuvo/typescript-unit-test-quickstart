@@ -1,9 +1,9 @@
 import ManageDOM from '../utils/ManageDOM';
-import { UserType } from './../models/constants/UserTypes';
 import { UserModel } from './../models/UserModel';
 
 //users storage variable
 let users: UserModel[] = []
+
 export class User {
     /**
      * createUser
@@ -34,11 +34,19 @@ export class User {
     }
 
     /**
-     * getSingleUser
+     * getSingleUserData
      */
-    public getSingleUser(email: string):UserModel {
+     public getSingleUserData(email: string):any {
         const userInfo = users.find(user => user.email === email)
-        return userInfo!       
+        return userInfo       
+    }
+
+    /**
+     * checkUserDuplicateEmail
+     */
+    public checkUserDuplicateEmail(email: string):boolean {
+        const userInfo = users.find(user => user.email === email)
+        return userInfo ? true : false       
     }
 
     /**

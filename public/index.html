@@ -26,7 +26,7 @@
             <ul class="item-list" id="item-list">
             </ul>
             <div class="container">
-                <form class="new-item-form" id="addUser">
+                <form class="new-item-form" id="addUser" method="POST">
                  <div class="field">
                         <label>User ID:(*)</label>
                         <input type="text" id="userID" name="userID" data-title="user id" data-required="true"/>
@@ -36,7 +36,7 @@
                     <select id="userType" name="userType" data-type="user type" data-required="true">
                       <option value="STUDENT">Student</option>
                       <option value="PARENT">Parent</option>
-                      <option value="TEACHER">Parent</option>
+                      <option value="TEACHER">Teacher</option>
                     </select>
                   </div>
                   <div class="field invisible" id="salutationField">
@@ -68,7 +68,7 @@
         <section id="manage-messaging" class="invisible">
             <h4>Manage Messaging</h4>
             <!-- output list -->
-            <ul class="item-list">
+            <ul class="item-list" id="item-list-message">
                 <li>
                 <h4>From: </h4>
                 <p>To: </p>
@@ -76,14 +76,14 @@
                 </li>
             </ul>
             <div class="container">
-                <form class="new-item-form" id="sendMessage">
+                <form class="new-item-form" id="sendMessage" method="POST">
                   <div class="field">
                     <label>From:(*)</label>
-                    <input type="text" id="from" name="from" data-title="from" data-required="true"/>
+                    <input type="email" id="from" name="from" data-title="from" data-required="true"/>
                   </div>
                   <div class="field">
                     <label>To:(*)</label>
-                    <input type="text" id="to" name="to" data-title="to" data-required="true"/>
+                    <input type="email" id="to" name="to" data-title="to" data-required="true"/>
                   </div>
                   <div class="field">
                     <label>Message:(*)</label>

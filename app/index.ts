@@ -1,3 +1,4 @@
+import { Message } from './controller/Message';
 import { User } from './controller/User';
 import { formData } from './utils/FormData';
 import ManageDOM from './utils/ManageDOM';
@@ -9,6 +10,7 @@ const userButton = document.querySelector('#manage-user-button')!
 const messagingButton = document.querySelector('#manage-messaging-button')!
 
 const userObj = new User()
+const messageObj = new Message()
 
 //User Create
 form.addEventListener('submit', (e)=>{
@@ -24,10 +26,9 @@ form.addEventListener('submit', (e)=>{
 messageForm.addEventListener('submit', (e)=>{
     e.preventDefault()
     const data = formData(messageForm)
-    console.log(data)
     if(!data.error){
-        // userObj.createUser(data.values)
-        // userObj.getAllUser()
+        messageObj.sendMessage(data.values)
+        messageObj.getAllMessage()
     }
 })
 

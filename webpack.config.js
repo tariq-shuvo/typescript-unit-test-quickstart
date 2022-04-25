@@ -24,5 +24,6 @@ module.exports = {
   resolve: {
     extensions: ['.ts', '.js', ]
   },
-  devtool: 'eval-source-map'
+  devtool: 'eval-source-map',
+  performance: { hints: false }
 };
